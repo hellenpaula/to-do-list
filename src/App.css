@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.App {
+    min-width:100%;
+    min-height: 100vh;
+    background-color: grey;
+    font-family: "Inter";
+}
+
+.tituloApp {
+    text-align: center;
+    padding: 0px 0px 25px ;
+}
+
+.container {
+    padding: 40px 15px;
+}
+
+.containerAreaTarefas {
+    padding: 10px 0px;
+   
+}
+
+.tituloAreaTarefas {
+    text-align: left;
+    padding: 0px 11px 10px;
+    font-size: 18px;
+    font-weight: 600;
+}

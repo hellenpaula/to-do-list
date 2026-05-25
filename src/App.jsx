@@ -2,6 +2,10 @@
 import './App.css'
 import { useState } from 'react'
 
+// components
+import Todo from './components/tarefas/Todo';
+
+
 function App() {
   const [todos, setTodos] = useState([
       {
@@ -26,11 +30,26 @@ function App() {
       },
   ]);
 
+
+
   return (
     <div className='App'>
       <main className="container">
         <h1 className='tituloApp'>Tarefas</h1>
-      
+
+        {/* Area das tarefas */}
+        <div className="containerAreaTarefas">
+          <h2 className="tituloAreaTarefas">Tarefas Atuais</h2>
+
+        {/* mapeia o array de objetos e pega os elementos de cada posição e envia ao componente Todo para aplicar na estrutura de tarefas */}
+          <div className="todo-list">
+            {todos.map((todo) => (
+              <Todo todo={todo} />
+            ))}
+          </div>
+
+        </div>
+        
       </main>
     </div>
   )
