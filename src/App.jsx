@@ -5,6 +5,7 @@ import { useState } from 'react'
 // components
 import Todo from './components/tarefas/Todo';
 
+import TodoForm from './components/criacaoTarefas/TodoForm';
 
 function App() {
   const [todos, setTodos] = useState([
@@ -49,6 +50,8 @@ function App() {
           </div>
 
         </div>
+
+        <TodoForm />
         
       </main>
     </div>

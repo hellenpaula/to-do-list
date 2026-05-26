@@ -1,0 +1,46 @@
+
+.containerCriacaoTarefas {
+    padding: 14px 0px;
+}
+
+.tituloAreaCriacaoTarefas {
+    text-align: left;
+    padding: 0px 11px 3px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.descricaoAreaCriacaoTarefas {
+    font-size: 14px;
+    padding: 0px 11px 10px;
+    color: rgb(201, 198, 198);
+}
+
+.todoForm {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.inputTitulo {
+    width: 328px;
+    padding: 7px 10px;
+    border-radius: 6px;
+    /* border: 1px solid #818181; */
+    border: none;
+    
+}
+
+.inputTitulo:focus {
+    outline: solid 1px rgb(105, 105, 105);
+}
+
+.buttonForm {
+    margin: -89px 0px;
+    padding: 6px;
+    width: 91px;
+    border-radius: 7px;
+    border: none;
+
+    background-color: #5bcc5b98;
+    color: rgb(19, 55, 19);
+}

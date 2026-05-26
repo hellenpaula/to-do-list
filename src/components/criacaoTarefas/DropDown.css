@@ -1,0 +1,61 @@
+
+.containerDropDown {
+    padding: 10px 0px;
+    width: 182.4px;
+}
+
+
+.inputSelectDropDown {
+    width: 328px;
+    padding: 7px 10px;
+    border-radius: 4px;
+    /* border: 1px solid #818181; */
+    border: none;
+}
+
+.inputSelectDropDown:focus {
+    /* border: 1px solid rgb(161, 152, 152); */
+    outline: solid 1px rgb(105, 105, 105);
+}
+
+
+.containerOptionsDropDown {
+    width: 328px;
+    border-radius: 0px 0px 6px 6px;
+    overflow: hidden;
+    border-top: 1px solid #cbcbcb3b;
+    /* margin: 1px 0px; */
+    visibility: hidden;
+}
+
+/* classe para dropDown */
+.ativo {
+    visibility: visible;
+    position: relative;
+    top: -3px;
+}
+
+.dropdown {
+    padding: 5px 10px;
+    width: 184px;
+    border-radius: 6px;
+    border: 1px solid #818181;
+    color: gray;
+}
+
+.option1, .option2, .option3 {
+    color: black;
+    padding: 5px 10px;
+    font-size: 15px;
+    background-color: white;
+}
+
+.option1:hover, 
+.option2:hover, 
+.option3:hover {
+    background-color: #5bcc5bac;
+}
+
+.option1, .option2 {
+    border-bottom: 2px solid rgba(128, 128, 128, 0.397);
+}
