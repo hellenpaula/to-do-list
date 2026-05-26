@@ -5,7 +5,7 @@ import DropDown from "./DropDown";
 import "./TodoForm.css";
 
 
-function TodoForm() {
+function TodoForm( {addTodo} ) {
 
     const [tituloTarefa, setTituloTarefa] = useState("");
 
@@ -24,11 +24,14 @@ function TodoForm() {
         // se o titulo ou a categoria estiverem vazias, retorne nada
         console.log(tituloTarefa);
         console.log(category);
-        if(!tituloTarefa || !category) {
-            return;
-        } else {
-            console.log("enviado");
-        }
+        if(!tituloTarefa || !category) return;
+        
+            // console.log("enviado");
+            // chama função criada em app com os valores do states
+            addTodo(tituloTarefa, category);
+            setCategory("");
+            setTituloTarefa("");
+        
 
         
         // senao, adicione a tarefa a lista, remova os valores dos campos
@@ -44,13 +47,15 @@ function TodoForm() {
             </p>
 
             <form className="todoForm" onSubmit={clickButtonCriar}>
-                <input type="text" className="inputTitulo" placeholder="Titulo" onChange={(e) => (
+                <input type="text" className="inputTitulo" placeholder="Titulo"
+                value={tituloTarefa}
+                onChange={(e) => (
                     setTituloTarefa(e.target.value)
                 )}/>
 
                 
 
-                <DropDown option1={"Trabalho"} option2={"Estudo"} option3={"Pessoal"} 
+                <DropDown option1={"Trabalho"} option2={"Estudo"} option3={"Pessoal"} value={category}
                 // envia como props a função q recebe valor do filho:
                 onEnviar={receberCategoryDoFilho} />
 

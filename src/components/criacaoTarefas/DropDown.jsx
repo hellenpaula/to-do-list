@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 import "./DropDown.css"
 
-function DropDown( {option1, option2, option3, onEnviar} ) {
+function DropDown( {option1, option2, option3, onEnviar, value} ) {
 
     // verifica se o dropdown esta ativo ou n e utiliza o state na classe.
     const [isAtivo, setIsAtivo] = useState(false);
@@ -41,7 +41,7 @@ function DropDown( {option1, option2, option3, onEnviar} ) {
                 <option value="" className="option4">{option4}</option>
             </select> */}
 
-            <input type="text" readOnly placeholder="-Selecione a categoria-" className="inputSelectDropDown" onClick={DropDownVisibility} value={category} />
+            <input type="text" readOnly placeholder="-Selecione a categoria-" className="inputSelectDropDown" onClick={DropDownVisibility} value={value} />
             <div className={`containerOptionsDropDown ${isAtivo ? "ativo" : ""} `}>
                 {/* usar data-value -> para setar o value e pegar no event */}
                 <div className="option1" data-value={option1} onClick={clickOption}>{option1} </div >
