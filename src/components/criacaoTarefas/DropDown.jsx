@@ -1,15 +1,20 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import "./DropDown.css"
 
-function DropDown( {option1, option2, option3} ) {
+function DropDown( {option1, option2, option3, onEnviar} ) {
 
     // verifica se o dropdown esta ativo ou n e utiliza o state na classe.
     const [isAtivo, setIsAtivo] = useState(false);
 
     // usada para verificar a categoria escolhida de acordo com o click nas options.
     const [category, setCategory] = useState();
+
+    // a cada mudança no useState de category e ele envia o valor a props onEnviar passada pelo pai:
+    useEffect(() => {
+        onEnviar(category);
+    }, [category, onEnviar]);
 
     function DropDownVisibility() {
         setIsAtivo(!isAtivo);
