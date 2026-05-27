@@ -1,19 +1,19 @@
 
 import "./Todo.css";
 
-function Todo( {todo, key, removed} ) {
+function Todo( {todo, } ) {
 
 
     return (
-        <div className="todo"  key={key}>
+        <div className="todo" >
             <div className="content">
                 <p className="tituloTarefa">{todo.text}</p>
                 <p className="categoriaTarefa">{todo.text}</p>
             </div>
 
             <div className="buttons">
-                <button className="completed" key={key} >Completar</button>
-                <button className="remove" onClick={() => removed(todo.id)}>X</button>
+                <button className="completed" >Completar</button>
+                <button className="remove" >X</button>
             </div>
         </div>
     )

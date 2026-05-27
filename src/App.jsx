@@ -32,39 +32,6 @@ function App() {
   ]);
 
 
-  // Cria um novo array que será criado com a aplicação de novas tarefas(o componente Todo.jsx só aceita arrays);
-  function removed(id) {
-    const newTodos = [...todos];
-    console.log(newTodos);
-
-    const filteredTodos = newTodos.filter((todo) => {
-      if(todo.id === id) {
-        null;
-      } else {
-        return todo;
-      }
-      console.log(todo);
-      console.log(id);
-    })
-    setTodos(filteredTodos);
-    console.log(filteredTodos);
-    
-  }
-
-
-  function addTodo(text, category) {
-    const newTodos = [
-      ...todos,
-      {
-        id: Math.floor(Math.random() * 10000),
-        text,
-        category,
-        isCompleted: false,
-      },
-    ];
-    setTodos(newTodos);
-    console.log("Adicionada tarefa");
-  }
 
   return (
     <div className='App'>
@@ -80,14 +47,14 @@ function App() {
 
             {todos.map((todo) => (
 
-              <Todo key={todo.id} todo={todo} removed={removed} />
+              <Todo key={todo.id} todo={todo} />
 
             ))}
           </div>
 
         </div>
 
-        <TodoForm addTodo={addTodo}/>
+        <TodoForm />
         
       </main>
     </div>

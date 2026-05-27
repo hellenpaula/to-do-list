@@ -12,9 +12,9 @@ function DropDown( {option1, option2, option3, onEnviar, value} ) {
     const [category, setCategory] = useState();
 
     // a cada mudança no useState de category e ele envia o valor a props onEnviar passada pelo pai:
-    useEffect(() => {
-        onEnviar(category);
-    }, [category, onEnviar]);
+    // useEffect(() => {
+    //     onEnviar(category);
+    // }, [category, onEnviar]);
 
     function DropDownVisibility() {
         setIsAtivo(!isAtivo);
@@ -32,7 +32,7 @@ function DropDown( {option1, option2, option3, onEnviar, value} ) {
     }
 
     return (
-        <div className="containerDropDown">
+        <div className="containerDropDown" >
             
             {/* <select className="dropdown">
                 <option value="" className="option1">{option1}</option>
@@ -41,7 +41,7 @@ function DropDown( {option1, option2, option3, onEnviar, value} ) {
                 <option value="" className="option4">{option4}</option>
             </select> */}
 
-            <input type="text" readOnly placeholder="-Selecione a categoria-" className="inputSelectDropDown" onClick={DropDownVisibility} value={value} />
+            <input type="text" readOnly placeholder="-Selecione a categoria-" className="inputSelectDropDown" onClick={DropDownVisibility} value={category} />
             <div className={`containerOptionsDropDown ${isAtivo ? "ativo" : ""} `}>
                 {/* usar data-value -> para setar o value e pegar no event */}
                 <div className="option1" data-value={option1} onClick={clickOption}>{option1} </div >
