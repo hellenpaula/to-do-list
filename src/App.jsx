@@ -30,6 +30,23 @@ function App() {
       },
   ]);
 
+  function removed(id) {
+    const newTodos = [...todos];
+    console.log(newTodos);
+
+    const filteredTodos = newTodos.filter((todo) => {
+      if(todo.id === id) {
+        null;
+      } else {
+        return todo;
+      }
+      console.log(todo);
+      console.log(id);
+    })
+    setTodos(filteredTodos);
+    console.log(filteredTodos);
+    
+  }
 
 
   return (
@@ -43,8 +60,9 @@ function App() {
 
         {/* mapeia o array de objetos e pega os elementos de cada posição e envia ao componente Todo para aplicar na estrutura de tarefas */}
           <div className="todo-list">
-            {todos.map((todo) => (
-              <Todo todo={todo} />
+            {todos
+            .map((todo) => (
+              <Todo key={todo.id} todo={todo} removed={removed} />
             ))}
           </div>
 
