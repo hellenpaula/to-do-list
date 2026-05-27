@@ -44,6 +44,7 @@ function App() {
       },
     ];
     setTodos(newTodos);
+    console.log("Adicionada tarefa");
   }
 
   return (
@@ -58,7 +59,7 @@ function App() {
         {/* mapeia o array de objetos e pega os elementos de cada posição e envia ao componente Todo para aplicar na estrutura de tarefas */}
           <div className="todo-list">
             {todos.map((todo) => (
-              <Todo todo={todo} />
+              <Todo key={todo.id} todo={todo} />
             ))}
           </div>
 
