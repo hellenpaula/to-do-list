@@ -16,12 +16,14 @@ function DropDown( {option1, option2, option3, onEnviar, value} ) {
     //     onEnviar(category);
     // }, [category, onEnviar]);
 
+    // função executada quando clicar no input, ela controla a visibilidade do dropdwn;
     function DropDownVisibility() {
         setIsAtivo(!isAtivo);
         // setCategory("");
     }
 
 
+    // função executada quando clicar em uma das opções;
     function clickOption(e) {
         // pegar valor dos atributos criados no jsx usando "dataset"
         // seta o value do input do dropdown com o valor clicado das options.
@@ -31,17 +33,18 @@ function DropDown( {option1, option2, option3, onEnviar, value} ) {
         setIsAtivo(false);
     }
 
+// remover dropdown quando clicar fora da área dele;
+    function mouseOut() {
+        setIsAtivo(false);
+    }
+
     return (
-        <div className="containerDropDown" >
+        <div className="containerDropDown" onMouseOut={mouseOut}>
             
-            {/* <select className="dropdown">
-                <option value="" className="option1">{option1}</option>
-                <option value="" className="option2">{option2}</option>
-                <option value="" className="option3">{option3}</option>
-                <option value="" className="option4">{option4}</option>
-            </select> */}
 
             <input type="text" readOnly placeholder="-Selecione a categoria-" className="inputSelectDropDown" onClick={DropDownVisibility} value={category} />
+
+            {/* classe aplicada ou n com validação */}
             <div className={`containerOptionsDropDown ${isAtivo ? "ativo" : ""} `}>
                 {/* usar data-value -> para setar o value e pegar no event */}
                 <div className="option1" data-value={option1} onClick={clickOption}>{option1} </div >
