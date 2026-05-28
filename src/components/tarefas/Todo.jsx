@@ -8,7 +8,7 @@ function Todo( {todo, } ) {
         <div className="todo" >
             <div className="content">
                 <p className="tituloTarefa">{todo.text}</p>
-                <p className="categoriaTarefa">{todo.text}</p>
+                <p className="categoriaTarefa">{todo.category}</p>
             </div>
 
             <div className="buttons">
