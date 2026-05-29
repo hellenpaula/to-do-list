@@ -11,7 +11,7 @@ function DropDown( {option1, option2, option3, onEnviar, value, category2, setCa
     // usada para verificar a categoria escolhida de acordo com o click nas options.
     const [category, setCategory] = useState();
     setCategory2(category);
-    
+
     // a cada mudança no useState de category e ele envia o valor a props onEnviar passada pelo pai:
     // useEffect(() => {
     //     onEnviar(category);
@@ -34,13 +34,32 @@ function DropDown( {option1, option2, option3, onEnviar, value, category2, setCa
         setIsAtivo(false);
     }
 
-// remover dropdown quando clicar fora da área dele;
-    function mouseOut() {
-        setIsAtivo(false);
+    // função que controla clicks fora do área do dropdown e desaparece faz desaparece-lo:
+    function clicarFora(e) {
+        const elementoPaiClick = (e.target).parentElement;
+        const classElementPai = elementoPaiClick.className;
+        if ((classElementPai).includes("containerDropDown")  || classElementPai.includes("containerOptionsDropDown")) {
+            return;
+        } else {
+            setIsAtivo(false);
+        };
+        
     }
 
+    // Executa efeitos externos do React;
+    // pode limpar o efeito(função document.addEventListener) depois com o return;
+    // o colchete vazio, faz ele criar a função apena uma vez;
+    useEffect(() => {
+        document.addEventListener('click', clicarFora);
+
+        return () => {
+            document.removeEventListener('click', clicarFora);
+        }
+    }, []);
+  
+
     return (
-        <div className="containerDropDown" onMouseOut={mouseOut}>
+        <div className="containerDropDown" >
             
 
             <input type="text" readOnly placeholder="-Selecione a categoria-" className="inputSelectDropDown" onClick={DropDownVisibility} value={category} />
