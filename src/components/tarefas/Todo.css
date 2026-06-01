@@ -26,6 +26,11 @@
     font-size: 16px;
 }
 
+.tarefaCompleted {
+    color: gray;
+    text-decoration: line-through;
+}
+
 .categoriaTarefa {
     font-size: 14px;
     padding-left: 0px ;
