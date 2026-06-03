@@ -1,0 +1,16 @@
+
+
+.containerSearch {
+    max-width: 328px;
+}
+
+.inputSearch {
+    width: 100%;
+    padding: 7px 10px;
+    border-radius: 6px ;
+    border: none;
+}
+
+.inputSearch:focus {
+    outline: solid 1px rgb(105, 105, 105);
+}
