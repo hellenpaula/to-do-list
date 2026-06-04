@@ -51,8 +51,6 @@ function Todo( {todo, id, todos, setTodosSearch, setTodoButtonsClicked, setButto
        setTodoButtonsClicked(newTodos);
        
     }
-    
-
 
     return (
         <div className="todo" >

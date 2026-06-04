@@ -33,8 +33,6 @@ function App() {
 
       },
   ]);
-
-  // setTodos(todos);
   
   const [inputSearch, setInputSearch] = useState(""); 
 
@@ -44,49 +42,26 @@ function App() {
   const [todoButtonsClicked, setTodoButtonsClicked] = useState("");
 
   const [ButtonClicked, setButtonClicked] = useState(false);
-  // console.log(todosSearch);
 
-  console.log(ButtonClicked);
+
   // state é enviado como parâmetro da função e enviado assim que houver mudança no state com "onChange", que chama a função.
-  // const todoInicial = todos.map((todo) => {
-  //   // if(todo) {
-  //     console.log(`item todo inicial: ${todo}`);
-  //     // return todo;
-      
+  
     console.log(todosSearch);
-  // });
   const todoInicial = todos.filter((todo) => {
     return todo;
   })
-  // const todoInicial2 = todoInicial.map((todo) => {
-  //   console.log(`Elemento todo inicial: ${todo}`);
-  // })
-  // console.log(`Todo inicial: ${todoInicial2}`);
-
-  // setTodos(todoInicial2);
 
   function searchTarefa(e) {
 
-    // console.log("dentro da função");
     const constInputSearch = e.target.value;
-    console.log("tipo dado: " + typeof constInputSearch)
-    // if(constInputSearch.length == 0 ) {
-    //   setTodosSearch(todos);
-    // } else {
-      console.log(todoInicial);
    
-    // const newArray = todos.filter((todo) => {
-      // condicional:
-      
-
-      // useEffect(() => {
         
         if(ButtonClicked === true) {
           const newArray = todoButtonsClicked;
           setTodosSearch(todoButtonsClicked);
-        }/*  else { */
+        }
 
-          const newArray = todos.filter((todo) => {
+        const newArray = todos.filter((todo) => {
          console.log(typeof constInputSearch.length);
          console.log(todos);
           
@@ -98,139 +73,18 @@ function App() {
           return todo;
 
           } else {
-            // return todoInicial;
-            
+            // "retorna nada"
           }
 
           });
 
           setTodosSearch(newArray);
           console.log(newArray);
-        
     
-        
-      // },[todoButtonsClicked]);
-
-
-      // if(constInputSearch.length == 0 ) {
-      //   const newArray = todoButtonsClicked;
-      //   // setTodosSearch(todoButtonsClicked);
-      //   console.log(todoButtonsClicked);
-// -------------------------------------------------
-       
-    //   {newArray.map((todo) => {
-    //     <Todo id={todo.id} todo={todo} todos={newArray} setTodos={setTodos}/>
-    // })}
-        // setTodos(newArray);
-
-      // condicional:
-      // } else {
-
-      
-  //     const newArray = todos.filter((todo) => {
-  //        console.log(typeof constInputSearch.length);
-  //        console.log(todos);
-  //     // console.log(`dentro do filter: ${e.target.value}`);
-      
-  //     // console.log(`dentro do filter, após envio por função: ${constInputSearch}`);
-  //     let tituloLowerCase = (todo.text).toLowerCase();
-      
-  //     // console.log(tituloLowerCase.includes(constInputSearch) == true);
-  //     console.log(todo);
-
-  //     // condicional certa:
-  //     // if(todo){
-  //     //   return ((todo.text).toLowerCase()).includes(constInputSearch) == true;
-  //     // } else {
-  //     //   return todoInicial;
-  //     // }
-      
-
-  //     if(((todo.text).toLowerCase()).includes(constInputSearch) == true){
-  //       return todo;
-
-  //     } else {
-  //       // return todoInicial;
-        
-  //     }
-      
-     
-  //     // if(tituloLowerCase.includes(constInputSearch) == true) {
-        
-  //     //   return todo;
-  //     //   // setTodosSearch(todo);
-
-  //     // } else if (constInputSearch == "") {
-  //     //   // setTodosSearch(todos);
-  //     //   return todos;
-  //     // } else {
-  //     //   return "";
-  //     //   // setTodosSearch("");
-  //     // }
-
-
-  //     // setTodos(todoInicial);
-
-  //     //  const tituloLowerCase = (todo.text).toLowerCase();
-  //     //  console.log(tituloLowerCase);
-  //     //  console.log("inputSearch: " + inputSearch);
-  //     // console.log(tituloLowerCase.includes(inputSearch));
-  //     // console.log(todo.id);
-  //     // tituloLowerCase.includes(inputSearch) === true;
-      
-  //   //   console.log((todo.text).includes(inputSearch) === true);
-  //   //     c
-  //   //  le.log((todo.text).includes(inputSearch) === true);
-  //   //  console.log(newArray);
-    
-  //   });
-  //   // console.log(newArray);
-  //   // setTodos(newArray);
-  // //   const componentTodoHTML =document.querySelector(".todo-list");
-  // // console.log(componentTodoHTML);
-   
-
-  // // componentTodoHTML.innerHTML("");
-  // //   componentTodoHTML.createElement()
-
-  // // componentTodoHTML.createElement(
-  // //   {newArray.map((todo) => (
-  // //             <Todo   id={todo.id} todo={todo} todos={todos} setTodos={setTodos}/>
-  // //           ))}
-  // //   )
-  
-  // //   {newArray.map((todo) => {
-  // //       <Todo id={todo.id} todo={todo} todos={newArray} setTodos={setTodos}/>
-  // //   })
-  // // }
-  // setTodosSearch(newArray);
-  // console.log(newArray);
-  // }
-    
-
-  //   //  newArray;
-  //   console.log(todoInicial);
-  //   // setTodos(newArray);
-    
-    
-  //   // setTodos(newArray);
-    
-  //   //  }
-  //   // console.log(todos.includes(inputSearch));
-  //   // setTodosSearch(newArray);
-  //   // if(constInputSearch == "") {
-  //   //   // setTodos(newArray);
-    //   setTodos(todos);
-    // } else {
-       
-    
-    // todos = newArray;
-    // console.log(newArray);
-  
   }
   
 console.log(todosSearch);
-// console.log(newTodos);
+
   return (
     <div className='App'>
       <main className="container">
@@ -253,10 +107,6 @@ console.log(todosSearch);
               <Todo   id={todo.id} todo={todo} todos={todosSearch} setTodosSearch={setTodosSearch} setTodoButtonsClicked={setTodoButtonsClicked} setButtonClicked={setButtonClicked} ButtonClicked={ButtonClicked} setTodos={setTodos}/>
               
             ))
-           
-
-              
-            
 
             }
           </div>
