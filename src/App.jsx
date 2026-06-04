@@ -1,6 +1,6 @@
 
 import './App.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 // components
 import Todo from './components/tarefas/Todo';
@@ -41,16 +41,19 @@ function App() {
   // todo utilizado para o search:
   const [todosSearch, setTodosSearch] = useState(todos);
 
+  const [todoButtonsClicked, setTodoButtonsClicked] = useState("");
+
+  const [ButtonClicked, setButtonClicked] = useState(false);
   // console.log(todosSearch);
 
-  
+  console.log(ButtonClicked);
   // state é enviado como parâmetro da função e enviado assim que houver mudança no state com "onChange", que chama a função.
   // const todoInicial = todos.map((todo) => {
   //   // if(todo) {
   //     console.log(`item todo inicial: ${todo}`);
   //     // return todo;
       
-    
+    console.log(todosSearch);
   // });
   const todoInicial = todos.filter((todo) => {
     return todo;
@@ -73,111 +76,150 @@ function App() {
       console.log(todoInicial);
    
     // const newArray = todos.filter((todo) => {
-      if(constInputSearch.length == 0 ) {
-        const newArray = todos;
-        setTodosSearch(newArray);
-        console.log("input vazio");
-        
-      {newArray.map((todo) => {
-        <Todo id={todo.id} todo={todo} todos={newArray} setTodos={setTodos}/>
-    })}
-        // setTodos(newArray);
-      } else {
-
+      // condicional:
       
-      const newArray = todos.filter((todo) => {
+
+      // useEffect(() => {
+        
+        if(ButtonClicked === true) {
+          const newArray = todoButtonsClicked;
+          setTodosSearch(todoButtonsClicked);
+        }/*  else { */
+
+          const newArray = todos.filter((todo) => {
          console.log(typeof constInputSearch.length);
          console.log(todos);
-      // console.log(`dentro do filter: ${e.target.value}`);
-      
-      // console.log(`dentro do filter, após envio por função: ${constInputSearch}`);
-      let tituloLowerCase = (todo.text).toLowerCase();
-      
-      // console.log(tituloLowerCase.includes(constInputSearch) == true);
-      console.log(todo);
+          
+         let tituloLowerCase = (todo.text).toLowerCase();
 
-      // condicional certa:
-      // if(todo){
-      //   return ((todo.text).toLowerCase()).includes(constInputSearch) == true;
-      // } else {
-      //   return todoInicial;
-      // }
-      
+         console.log(todo);
 
-      if(((todo.text).toLowerCase()).includes(constInputSearch) == true){
-        return todo;
+          if(((todo.text).toLowerCase()).includes(constInputSearch) == true){
+          return todo;
 
-      } else {
-        // return todoInicial;
+          } else {
+            // return todoInicial;
+            
+          }
+
+          });
+
+          setTodosSearch(newArray);
+          console.log(newArray);
         
-      }
+    
+        
+      // },[todoButtonsClicked]);
+
+
+      // if(constInputSearch.length == 0 ) {
+      //   const newArray = todoButtonsClicked;
+      //   // setTodosSearch(todoButtonsClicked);
+      //   console.log(todoButtonsClicked);
+// -------------------------------------------------
+       
+    //   {newArray.map((todo) => {
+    //     <Todo id={todo.id} todo={todo} todos={newArray} setTodos={setTodos}/>
+    // })}
+        // setTodos(newArray);
+
+      // condicional:
+      // } else {
+
+      
+  //     const newArray = todos.filter((todo) => {
+  //        console.log(typeof constInputSearch.length);
+  //        console.log(todos);
+  //     // console.log(`dentro do filter: ${e.target.value}`);
+      
+  //     // console.log(`dentro do filter, após envio por função: ${constInputSearch}`);
+  //     let tituloLowerCase = (todo.text).toLowerCase();
+      
+  //     // console.log(tituloLowerCase.includes(constInputSearch) == true);
+  //     console.log(todo);
+
+  //     // condicional certa:
+  //     // if(todo){
+  //     //   return ((todo.text).toLowerCase()).includes(constInputSearch) == true;
+  //     // } else {
+  //     //   return todoInicial;
+  //     // }
+      
+
+  //     if(((todo.text).toLowerCase()).includes(constInputSearch) == true){
+  //       return todo;
+
+  //     } else {
+  //       // return todoInicial;
+        
+  //     }
       
      
-      // if(tituloLowerCase.includes(constInputSearch) == true) {
+  //     // if(tituloLowerCase.includes(constInputSearch) == true) {
         
-      //   return todo;
-      //   // setTodosSearch(todo);
+  //     //   return todo;
+  //     //   // setTodosSearch(todo);
 
-      // } else if (constInputSearch == "") {
-      //   // setTodosSearch(todos);
-      //   return todos;
-      // } else {
-      //   return "";
-      //   // setTodosSearch("");
-      // }
+  //     // } else if (constInputSearch == "") {
+  //     //   // setTodosSearch(todos);
+  //     //   return todos;
+  //     // } else {
+  //     //   return "";
+  //     //   // setTodosSearch("");
+  //     // }
 
 
-      // setTodos(todoInicial);
+  //     // setTodos(todoInicial);
 
-      //  const tituloLowerCase = (todo.text).toLowerCase();
-      //  console.log(tituloLowerCase);
-      //  console.log("inputSearch: " + inputSearch);
-      // console.log(tituloLowerCase.includes(inputSearch));
-      // console.log(todo.id);
-      // tituloLowerCase.includes(inputSearch) === true;
+  //     //  const tituloLowerCase = (todo.text).toLowerCase();
+  //     //  console.log(tituloLowerCase);
+  //     //  console.log("inputSearch: " + inputSearch);
+  //     // console.log(tituloLowerCase.includes(inputSearch));
+  //     // console.log(todo.id);
+  //     // tituloLowerCase.includes(inputSearch) === true;
       
-    //   console.log((todo.text).includes(inputSearch) === true);
-    //     c
-    //  le.log((todo.text).includes(inputSearch) === true);
-    //  console.log(newArray);
+  //   //   console.log((todo.text).includes(inputSearch) === true);
+  //   //     c
+  //   //  le.log((todo.text).includes(inputSearch) === true);
+  //   //  console.log(newArray);
     
-    });
-    // console.log(newArray);
-    // setTodos(newArray);
-  //   const componentTodoHTML =document.querySelector(".todo-list");
-  // console.log(componentTodoHTML);
+  //   });
+  //   // console.log(newArray);
+  //   // setTodos(newArray);
+  // //   const componentTodoHTML =document.querySelector(".todo-list");
+  // // console.log(componentTodoHTML);
    
 
-  // componentTodoHTML.innerHTML("");
-  //   componentTodoHTML.createElement()
+  // // componentTodoHTML.innerHTML("");
+  // //   componentTodoHTML.createElement()
 
-  // componentTodoHTML.createElement(
-  //   {newArray.map((todo) => (
-  //             <Todo   id={todo.id} todo={todo} todos={todos} setTodos={setTodos}/>
-  //           ))}
-  //   )
+  // // componentTodoHTML.createElement(
+  // //   {newArray.map((todo) => (
+  // //             <Todo   id={todo.id} todo={todo} todos={todos} setTodos={setTodos}/>
+  // //           ))}
+  // //   )
   
-  //   {newArray.map((todo) => {
-  //       <Todo id={todo.id} todo={todo} todos={newArray} setTodos={setTodos}/>
-  //   })
+  // //   {newArray.map((todo) => {
+  // //       <Todo id={todo.id} todo={todo} todos={newArray} setTodos={setTodos}/>
+  // //   })
+  // // }
+  // setTodosSearch(newArray);
+  // console.log(newArray);
   // }
-  setTodosSearch(newArray);
-  console.log(newArray);
-  }
     
 
-    //  newArray;
-    console.log(todoInicial);
-    // setTodos(newArray);
+  //   //  newArray;
+  //   console.log(todoInicial);
+  //   // setTodos(newArray);
     
     
-    // setTodos(newArray);
+  //   // setTodos(newArray);
     
-    //  }
-    // console.log(todos.includes(inputSearch));
-    // setTodosSearch(newArray);
-    // if(constInputSearch == "") {
-    //   // setTodos(newArray);
+  //   //  }
+  //   // console.log(todos.includes(inputSearch));
+  //   // setTodosSearch(newArray);
+  //   // if(constInputSearch == "") {
+  //   //   // setTodos(newArray);
     //   setTodos(todos);
     // } else {
        
@@ -188,6 +230,7 @@ function App() {
   }
   
 console.log(todosSearch);
+// console.log(newTodos);
   return (
     <div className='App'>
       <main className="container">
@@ -207,7 +250,7 @@ console.log(todosSearch);
           {/* todos ou todosSearch, todosSearch está parando o complete e remove */}
             {todosSearch.map((todo) => (
               
-              <Todo   id={todo.id} todo={todo} todos={todos} setTodos={setTodos}/>
+              <Todo   id={todo.id} todo={todo} todos={todosSearch} setTodosSearch={setTodosSearch} setTodoButtonsClicked={setTodoButtonsClicked} setButtonClicked={setButtonClicked} ButtonClicked={ButtonClicked} setTodos={setTodos}/>
               
             ))
            
@@ -220,7 +263,7 @@ console.log(todosSearch);
 
         </div>
 
-        <TodoForm todos={todos} setTodos={setTodos}/>
+        <TodoForm todos={todosSearch} setTodos={setTodosSearch}/>
         
       </main>
     </div>

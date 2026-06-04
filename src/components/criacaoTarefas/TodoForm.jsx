@@ -17,6 +17,8 @@ function TodoForm( {todos, setTodos} ) {
 
         // validação de campos:
         !tituloTarefa || !category ? "" : criarTarefa();
+        
+        
     }
 
     // função para criar novas tarefas 
@@ -31,6 +33,7 @@ function TodoForm( {todos, setTodos} ) {
         ];
         console.log(newTodos);
         setTodos(newTodos);
+        
     }
     
 

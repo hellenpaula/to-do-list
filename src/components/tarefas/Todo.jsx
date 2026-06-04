@@ -1,8 +1,14 @@
 
+import { useState } from "react";
 import "./Todo.css";
 
-function Todo( {todo, id, todos, setTodos} ) {
 
+function Todo( {todo, id, todos, setTodosSearch, setTodoButtonsClicked, setButtonClicked, ButtonClicked, setTodos} ) {
+
+    
+    // const [newTodoButtons, setNewTodoButtons] = useState("");
+
+    
     // lógica botão x;
     function removedTarefa(e) {
         const idButton = Number(e.target.id);
@@ -17,10 +23,14 @@ function Todo( {todo, id, todos, setTodos} ) {
                 return todo;
             }
         })
+        // setNewTodoButtons(newTodos);
+        setButtonClicked(true) ;
+        setTodosSearch(newTodos);
         setTodos(newTodos);
+        setTodoButtonsClicked(newTodos);
 
     }
-
+    
     // lógica do botão completed:
     function completedTarefa(e) {
         console.log(e.target.id);
@@ -36,8 +46,12 @@ function Todo( {todo, id, todos, setTodos} ) {
             };
         })
         console.log(newTodos);
-        setTodos(newTodos);
+        
+        setTodosSearch(newTodos);
+       setTodoButtonsClicked(newTodos);
+       
     }
+    
 
 
     return (
