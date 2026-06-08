@@ -8,6 +8,7 @@ import Todo from './components/tarefas/Todo';
 import TodoForm from './components/criacaoTarefas/TodoForm';
 
 import Search from './components/filtragem/Search';
+import DropDown from './components/criacaoTarefas/DropDown';
 
 function App() {
   // todo padrão:
@@ -45,7 +46,20 @@ function App() {
 
 
   // state é enviado como parâmetro da função e enviado assim que houver mudança no state com "onChange", que chama a função.
+
+  // state área do status:
+  const [status, setStatus] = useState("");
   
+
+  useEffect(() => {
+     if(status) {
+      console.log(status);
+      selectStatus(status);
+     }
+    
+  }, [status])
+
+
     console.log(todosSearch);
   const todoInicial = todos.filter((todo) => {
     return todo;
@@ -82,6 +96,23 @@ function App() {
           console.log(newArray);
     
   }
+
+
+  function selectStatus(statusValue) {
+    // console.log(todos);
+    const newTodosStatus = todos.filter((todo) => {
+      if (statusValue === "Todas") {
+        return todo;
+      } else if (statusValue === "Completas") {
+        return todo.isCompleted === true;
+      } else {
+        return todo.isCompleted === false;
+      }
+    })
+
+    // console.log(newTodosStatus);
+    setTodosSearch(newTodosStatus);
+  }
   
 console.log(todosSearch);
 
@@ -92,6 +123,10 @@ console.log(todosSearch);
 
         <Search inputSearch={inputSearch} setInputSearch={setInputSearch} searchTarefa2={searchTarefa}/>
         
+        {/* aplicando componente dropdown novamente para o status */}
+
+        <DropDown option1={"Todas"} option2={"Completas"} option3={"Incompletas"} placeholder={"-Selecione o status-"} value={status} parentComponentSelectedValue={status} setParentComponentSelectedValue={setStatus} />
+
 
         {/* Area das tarefas */}
         <div className="containerAreaTarefas">
@@ -113,7 +148,9 @@ console.log(todosSearch);
 
         </div>
 
-        <TodoForm todos={todosSearch} setTodos={setTodosSearch}/>
+        {/* alteração nas props: tive que aplicar os valores recebidos da props não só no state "TodosSearch"(que está sendo usado como array das tarefas), mas tbm no state "todos"(que ainda tbm precisa ser utilizado em algumas partes do código como em 'selectStatus') para que ele fique sempre atualizado a cada criação de tarefas e não provoque erro nos momentos em que precisaremos dele atualizado para filtrar elementos como em 'selectStatus'  */}
+        <TodoForm todos={todos} setTodos={setTodos} todosSearch={todosSearch} setTodosSearch={setTodosSearch} />
+        {console.log(todosSearch)}
         
       </main>
     </div>

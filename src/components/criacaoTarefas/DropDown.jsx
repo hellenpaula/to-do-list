@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 import "./DropDown.css"
 
-function DropDown( {option1, option2, option3, onEnviar, value, parentComponentSelectedValue, setParentComponentSelectedValue} ) {
+function DropDown( {option1, option2, option3, placeholder , onEnviar, value, parentComponentSelectedValue, setParentComponentSelectedValue} ) {
 
     // verifica se o dropdown esta ativo ou n e utiliza o state na classe.
     const [isAtivo, setIsAtivo] = useState(false);
@@ -61,7 +61,7 @@ function DropDown( {option1, option2, option3, onEnviar, value, parentComponentS
         <div className="containerDropDown" >
             
 
-            <input type="text" readOnly placeholder="-Selecione a categoria-" className="inputSelectDropDown" onClick={DropDownVisibility} value={childComponentSelectedValue} />
+            <input type="text" readOnly placeholder={placeholder} className="inputSelectDropDown" onClick={DropDownVisibility} value={childComponentSelectedValue} />
 
             {/* classe aplicada ou n com validação */}
             <div className={`containerOptionsDropDown ${isAtivo ? "ativo" : ""} `}>

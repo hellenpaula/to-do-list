@@ -33,7 +33,7 @@ function TodoForm( {todos, setTodos} ) {
         ];
         console.log(newTodos);
         setTodos(newTodos);
-        
+        console.log(todos);
     }
     
 
@@ -49,7 +49,7 @@ function TodoForm( {todos, setTodos} ) {
 
                 
 
-                <DropDown option1={"Trabalho"} option2={"Estudo"} option3={"Pessoal"} value={category} parentComponentSelectedValue={category} setParentComponentSelectedValue={setCategory}
+                <DropDown option1={"Trabalho"} option2={"Estudo"} option3={"Pessoal"} placeholder={"-Selecione a categoria-"} value={category} parentComponentSelectedValue={category} setParentComponentSelectedValue={setCategory}
                 // envia como props a função q recebe valor do filho:
                 />
 
