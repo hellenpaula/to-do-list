@@ -3,14 +3,14 @@ import { useEffect, useState } from 'react';
 
 import "./DropDown.css"
 
-function DropDown( {option1, option2, option3, onEnviar, value, category2, setCategory2} ) {
+function DropDown( {option1, option2, option3, onEnviar, value, parentComponentSelectedValue, setParentComponentSelectedValue} ) {
 
     // verifica se o dropdown esta ativo ou n e utiliza o state na classe.
     const [isAtivo, setIsAtivo] = useState(false);
 
     // usada para verificar a categoria escolhida de acordo com o click nas options.
-    const [category, setCategory] = useState();
-    setCategory2(category);
+    const [childComponentSelectedValue, setChildComponentSelectedValue] = useState();
+    setParentComponentSelectedValue(childComponentSelectedValue);
 
     // a cada mudança no useState de category e ele envia o valor a props onEnviar passada pelo pai:
     // useEffect(() => {
@@ -23,12 +23,11 @@ function DropDown( {option1, option2, option3, onEnviar, value, category2, setCa
         // setCategory("");
     }
 
-
     // função executada quando clicar em uma das opções;
     function clickOption(e) {
         // pegar valor dos atributos criados no jsx usando "dataset"
         // seta o value do input do dropdown com o valor clicado das options.
-        setCategory(e.target.dataset.value);
+        setChildComponentSelectedValue(e.target.dataset.value);
         
         //ao clicar em option, some o dropdown(setando a classe com false(" ") ). 
         setIsAtivo(false);
@@ -62,7 +61,7 @@ function DropDown( {option1, option2, option3, onEnviar, value, category2, setCa
         <div className="containerDropDown" >
             
 
-            <input type="text" readOnly placeholder="-Selecione a categoria-" className="inputSelectDropDown" onClick={DropDownVisibility} value={category} />
+            <input type="text" readOnly placeholder="-Selecione a categoria-" className="inputSelectDropDown" onClick={DropDownVisibility} value={childComponentSelectedValue} />
 
             {/* classe aplicada ou n com validação */}
             <div className={`containerOptionsDropDown ${isAtivo ? "ativo" : ""} `}>
