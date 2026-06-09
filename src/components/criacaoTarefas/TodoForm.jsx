@@ -5,7 +5,7 @@ import DropDown from "./DropDown";
 import "./TodoForm.css";
 
 
-function TodoForm( {todos, setTodos} ) {
+function TodoForm( {todos, setTodos, todosSearch, setTodosSearch} ) {
 
     const [tituloTarefa, setTituloTarefa] = useState("");
 
@@ -13,6 +13,7 @@ function TodoForm( {todos, setTodos} ) {
 
     function validacaoInputs(e) {
         e.preventDefault();
+        console.log("Clicou");
         // ao submeter ele seta category com o valor enviado como props pelo filho "dropdown";
 
         // validação de campos:
@@ -33,6 +34,8 @@ function TodoForm( {todos, setTodos} ) {
         ];
         console.log(newTodos);
         setTodos(newTodos);
+        setTodosSearch(newTodos);
+        
         console.log(todos);
     }
     

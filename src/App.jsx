@@ -10,6 +10,8 @@ import TodoForm from './components/criacaoTarefas/TodoForm';
 import Search from './components/filtragem/Search';
 import DropDown from './components/criacaoTarefas/DropDown';
 
+import Order from './components/filtragem/Order';
+
 function App() {
   // todo padrão:
   const [todos, setTodos] = useState([
@@ -113,7 +115,40 @@ function App() {
     // console.log(newTodosStatus);
     setTodosSearch(newTodosStatus);
   }
+
+  function verificationButton(e) {
+        // console.log(e.target.value);
+        // console.log("função verification button");
+        if (e.target.value === "Crescente") {
+            ascendingOrder();
+        } else {
+            descendingOrder();
+        }
+    }
   
+  function ascendingOrder() {
+    console.log("Ordenando");
+    
+    // mapeia o state todos mostrado na tela e cria um array apenas com os titulos 
+    // das tarefas;
+    const newArrayOrdenado = [...todosSearch].sort((a, b) => a.text.localeCompare(b.text));
+    // todosSearch.sort((a, b) => a.text.localeCompare(b.text));
+    setTodosSearch(newArrayOrdenado);
+    setTodos(newArrayOrdenado);
+
+    
+  }
+
+  function descendingOrder() {
+    console.log("Desordenando");
+
+    const newArrayDesordenado = [...todosSearch].reverse((a, b) => b.text.localeCompare(a.text));
+    setTodosSearch(newArrayDesordenado);
+    setTodos(newArrayDesordenado);
+
+  }
+
+
 console.log(todosSearch);
 
   return (
@@ -123,6 +158,10 @@ console.log(todosSearch);
 
         <Search inputSearch={inputSearch} setInputSearch={setInputSearch} searchTarefa2={searchTarefa}/>
         
+        {/* área de ordenação: */}
+        <Order /* functionAscendingOrder */ascendingOrder={ascendingOrder} /* functionDescendingOrder */descendingOrder={descendingOrder} verificationButtonParent={verificationButton}/>
+
+
         {/* aplicando componente dropdown novamente para o status */}
 
         <DropDown option1={"Todas"} option2={"Completas"} option3={"Incompletas"} placeholder={"-Selecione o status-"} value={status} parentComponentSelectedValue={status} setParentComponentSelectedValue={setStatus} />

@@ -481,3 +481,219 @@ O código tornou-se mais organizado, reutilizável e preparado para a implementa
 Durante esta etapa ficou evidente a importância de analisar a estrutura da aplicação antes de implementar novas funcionalidades.
 
 Em alguns momentos foi necessário refatorar partes já existentes para permitir a expansão do projeto de forma organizada. Esse processo reforçou a ideia de que o desenvolvimento não consiste apenas em adicionar código, mas também em reorganizar e adaptar estruturas existentes para facilitar a manutenção e a evolução da aplicação.
+
+## 📌 Funcionalidade: Ordenação Alfabética das Tarefas
+
+### Objetivo
+
+Implementar uma funcionalidade que permita ordenar as tarefas em ordem alfabética:
+
+* **Crescente (A → Z)**
+* **Decrescente (Z → A)**
+
+A ordenação deve reorganizar a tarefa completa (objeto inteiro), mantendo a associação correta entre título, categoria e status.
+
+---
+
+## 🧠 Processo de Análise
+
+Antes de iniciar a implementação, foi necessário entender como as tarefas estavam estruturadas.
+
+Cada tarefa é representada por um objeto:
+
+```js
+{
+  id: 1,
+  text: "Tarefa 1",
+  category: "Estudo",
+  isCompleted: false
+}
+```
+
+Inicialmente, a tentativa foi ordenar apenas os títulos das tarefas.
+
+Para isso, foi criado um array contendo somente os valores de `text`, que era ordenado e posteriormente reaplicado às tarefas exibidas na tela.
+
+### Problema encontrado
+
+Ao ordenar apenas os títulos, os demais dados da tarefa permaneciam em suas posições originais.
+
+Exemplo:
+
+Antes:
+
+```text
+Tarefa A - Estudo
+Tarefa C - Trabalho
+Tarefa B - Pessoal
+```
+
+Após ordenar somente os títulos:
+
+```text
+Tarefa A - Estudo
+Tarefa B - Trabalho
+Tarefa C - Pessoal
+```
+
+Os títulos mudavam de posição, mas as categorias permaneciam onde estavam, causando inconsistência nos dados exibidos.
+
+---
+
+## 💡 Mudança de Estratégia
+
+Após analisar o problema, foi identificado que a ordenação deveria ocorrer sobre os objetos completos e não apenas sobre uma propriedade específica.
+
+Em vez de mover apenas o texto das tarefas, a solução passou a reorganizar os próprios objetos dentro do array.
+
+Dessa forma, todos os dados da tarefa permanecem juntos durante a ordenação:
+
+```js
+{
+  id: 2,
+  text: "Tarefa B",
+  category: "Pessoal",
+  isCompleted: false
+}
+```
+
+---
+
+## 🔄 Utilização do Método `sort()`
+
+Foi utilizado o método nativo do JavaScript:
+
+```js
+array.sort()
+```
+
+Porém, como o array contém objetos, foi necessário informar ao método qual propriedade deveria ser utilizada na comparação.
+
+Para isso, foi utilizada a função:
+
+```js
+localeCompare()
+```
+
+Responsável por comparar strings de forma adequada para ordenação alfabética.
+
+---
+
+## 📈 Ordenação Crescente (A → Z)
+
+A ordenação crescente foi implementada comparando os títulos das tarefas:
+
+```js
+const newArrayOrdenado = [...todosSearch].sort(
+  (a, b) => a.text.localeCompare(b.text)
+);
+```
+
+### O que acontece?
+
+1. É criada uma cópia do array utilizando o operador spread (`...`).
+2. O método `sort()` percorre os objetos.
+3. Os títulos (`text`) são comparados.
+4. Os objetos são reorganizados em ordem alfabética crescente.
+5. O novo array é salvo nos states utilizados pela aplicação.
+
+---
+
+## 📉 Ordenação Decrescente (Z → A)
+
+Após compreender o funcionamento do `localeCompare()`, foi possível perceber que inverter a comparação também inverte a ordem da classificação.
+
+Em vez de:
+
+```js
+a.text.localeCompare(b.text)
+```
+
+foi utilizada:
+
+```js
+b.text.localeCompare(a.text)
+```
+
+Exemplo:
+
+```js
+const newArrayDesordenado = [...todosSearch].sort(
+  (a, b) => b.text.localeCompare(a.text)
+);
+```
+
+### Resultado
+
+A lista passa a ser exibida da última letra para a primeira:
+
+```text
+Z
+Y
+X
+...
+C
+B
+A
+```
+
+---
+
+## ⚠️ Aprendizado Importante sobre Estados
+
+Durante o desenvolvimento foi identificado que utilizar:
+
+```js
+todosSearch.sort(...)
+```
+
+modifica diretamente o array armazenado no state.
+
+Isso pode causar comportamentos inesperados no React.
+
+Por esse motivo foi adotada a estratégia:
+
+```js
+[...todosSearch].sort(...)
+```
+
+que cria uma cópia do array antes da ordenação.
+
+### Benefícios
+
+* Mantém a imutabilidade do state.
+* Evita alterações diretas nos dados originais.
+* Garante uma atualização correta da interface pelo React.
+
+---
+
+## ✅ Resultado Final
+
+A funcionalidade de ordenação passou a:
+
+* Ordenar tarefas em ordem crescente.
+* Ordenar tarefas em ordem decrescente.
+* Manter título, categoria e status associados corretamente.
+* Utilizar boas práticas de manipulação de estados no React.
+* Reutilizar a estrutura já existente do projeto através do componente `Order`.
+
+---
+
+## 📚 Principais Conceitos Aprendidos
+
+* Ordenação de arrays de objetos.
+* Diferença entre ordenar propriedades e ordenar objetos completos.
+* Utilização do método `sort()`.
+* Utilização do método `localeCompare()`.
+* Importância da imutabilidade em estados React.
+* Uso do operador spread (`...`) para criar cópias de arrays.
+* Organização da lógica de ordenação no componente pai (`App.jsx`).
+* Reutilização de componentes para novas funcionalidades.
+
+### Evolução do raciocínio
+
+A principal evolução nesta funcionalidade foi perceber que não era necessário criar arrays separados para cada propriedade da tarefa.
+
+Em vez disso, a solução correta foi tratar cada tarefa como uma unidade única (objeto completo) e apenas reorganizar a posição desses objetos dentro do array.
+
+Essa mudança simplificou significativamente a implementação e tornou a solução mais robusta para futuras funcionalidades.
