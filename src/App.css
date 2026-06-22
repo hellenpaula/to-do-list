@@ -39,7 +39,9 @@
     padding: 5px;
     gap: 25px;
     animation: move 2s ease-in-out;
-    
+    transition: all 2s ease 0.1s;
+    position: relative;
+    z-index: 2;
 
 }
 
@@ -55,6 +57,7 @@
 
 .containerThemeIconOn {
     border: 1px solid #d0d0d038;
+    transition: all 2s ease 0.1s;
 }
 
 .themeIconLigth {
@@ -63,7 +66,9 @@
     align-items: center;
     gap: 10px;
     padding-left: 13px;
-    transition: all smooth 0.3s;
+    z-index: 2; 
+    /* transition: all smooth 0.3s; */
+    /* transition: background-color 2s ease-in-out 0.1s; */
     
 
 }
@@ -72,7 +77,10 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: all smooth 0.3s;
+    z-index: 2;
+    /* transition: all smooth 0.3s; */
+    /* transition: background-color 2s ease-in-out 0.1s; */
+    
 
     /* selecionado */
     /* background-color: black;
@@ -83,26 +91,78 @@
 }
 
 .themeIconLigthOn {
-    background-color: black;
-    color: white;
+    /* background-color: black; */
+    /* color: white; */
     padding: 13px 21px;
     border-radius: 30px;
     margin-left: -15px;
-
+    /* animation-name: slice; */
+    animation-duration: 3s;
+    /* transform: translateX(1%); */
+    /* transition: all 2s ease-in-out 0.1s; */
     /* aplicando animação swipe */
     /* transform: translateX(-50%); */
     
 }
 
 .themeIconDarkhOn {
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
+    /* background-color: rgb(255, 255, 255); */
+    /* color: rgb(0, 0, 0); */
     padding: 13px 21px;
     border-radius: 30px;
+    /* transform: translateX(-2%); */
 
+    animation-name: dark;
+    /* animation-duration: 0.3s; */
+    /* transition: all 2s ease 2s; */
     /* aplicando animação swipe */
     /* transform: translateX(50%); */
 }
+
+
+/* div background botão mode */
+.backgroundElement {
+    background-color: blue;
+    width: 108px;
+    height: 50px;
+    /* controla posição inicial */
+    position: absolute;
+    right: 105px;
+    /* camada anterior aos elementos do botão */
+    z-index: 1;
+    border-radius: 31px;
+    transition: all 0.8s ease-in-out;
+}
+
+
+.backgroundElementDark {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    /* muda a posição quando o dark estiver ativo */
+    position: absolute;
+    right: 8px;
+}
+
+
+.backgroundElementLigth {
+    background-color: black;
+    color: white;
+}
+
+@keyframes dark {
+    from {
+        translate: 1% 0;
+        background-color: rgb(255, 255, 255);
+        scale: 200% 1;
+    }
+
+    to {
+        translate: 91%;
+        background-color: rgb(255, 255, 255);
+        scale: 100% 1;
+    }
+}
+
 
 .themeLight {
     color: rgb(255, 255, 255);

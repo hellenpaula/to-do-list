@@ -9,7 +9,7 @@ Funcionalidades a serem aplicadas:
 - Filtrar status ☑️
 - Ordenar ☑️
 
-- Dark mode(troca de visual ao clicar no botão ☑️, botão desliza ao ser clicado)
+- Dark mode(troca de visual ao clicar no botão ☑️, botão desliza ao ser clicado☑️)
 - Ckeckbox ao clicar em completar
 - Escolha de data de conclusão
 - Aplicar a opção de filtar por categorias(ou criar um novo filtro só para categorias(trabalho, estudo, pessoal) ou aplicar dentro do filtro de status com alguma separação entre status - categorias)

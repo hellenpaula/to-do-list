@@ -170,6 +170,7 @@ console.log(todosSearch);
 
         <div /* className="containerThemeIcon" */ className={`containerThemeIcon ${isDark === false ? "" : "containerThemeIconOn"}`}>
 
+        
          <div className={`themeIconLigth ${isDark === false ? "themeIconLigthOn" : ""}`} onClick={changeMode}>
              
             <i className={`fi fi-tr-brightness themeLight  ${isDark === false ? "themeLightOn" : ""}`} ></i>
@@ -183,6 +184,8 @@ console.log(todosSearch);
 
           </div>
 
+        {/* elemento background botão mode, condicional para aplicar classe de acordo com o valor do clique */}
+        <div className=/* 'backgroundElement' */ {`backgroundElement ${isDark === true ? "backgroundElementDark" : "backgroundElementLigth"}`}></div>
         </div>
 
         <h1 className='tituloApp'>Tarefas</h1>
