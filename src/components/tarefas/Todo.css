@@ -10,7 +10,8 @@
 }
 
 .todo {
-    background-color: white;
+    /* background-color: white; */
+    background-color: var(--background-color-todo);
     display: flex;
     justify-content: space-between;
     align-items: center;

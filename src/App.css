@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+
+/* cdn ligth theme */
+@import url('https://cdn-uicons.flaticon.com/4.0.0/uicons-thin-rounded/css/uicons-thin-rounded.css');
+
+/* cdn dark theme */
+@import url('https://cdn-uicons.flaticon.com/4.0.0/uicons-thin-straight/css/uicons-thin-straight.css');
+
 *{
     margin: 0px;
     padding: 0px;
@@ -9,8 +16,113 @@
 .App {
     min-width:100%;
     /* min-height: 1000vh; */
-    background-color: grey;
+    /* background-color: grey; */
+    background-color: var(--background-color);
     font-family: "Inter";
+}
+
+.container {
+    padding: 40px 15px;
+    min-height: 129vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.containerThemeIcon {
+    display: flex;
+    align-self: end;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #00000038;
+    border-radius: 40px;
+    width: 220px;
+    padding: 5px;
+    gap: 25px;
+    animation: move 2s ease-in-out;
+    
+
+}
+
+/* @keyframes move {
+    0% {
+        transform: translateX(0px);
+    }
+
+    100% {
+        transform: ;
+    }
+} */
+
+.containerThemeIconOn {
+    border: 1px solid #d0d0d038;
+}
+
+.themeIconLigth {
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 13px;
+    transition: all smooth 0.3s;
+    
+
+}
+
+.themeIconDark {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all smooth 0.3s;
+
+    /* selecionado */
+    /* background-color: black;
+    color: white;
+    padding: 13px 21px;
+    border-radius: 30px; */
+
+}
+
+.themeIconLigthOn {
+    background-color: black;
+    color: white;
+    padding: 13px 21px;
+    border-radius: 30px;
+    margin-left: -15px;
+
+    /* aplicando animação swipe */
+    /* transform: translateX(-50%); */
+    
+}
+
+.themeIconDarkhOn {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    padding: 13px 21px;
+    border-radius: 30px;
+
+    /* aplicando animação swipe */
+    /* transform: translateX(50%); */
+}
+
+.themeLight {
+    color: rgb(255, 255, 255);
+    /* width: 35px; */
+    font-size: 19px;
+    
+}
+
+.themeLightOn {
+    color: white;
+}
+
+.themeDark {
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    rotate: -30deg;
+}
+
+.themeParagraph {
+    font-size: 13px;
 }
 
 .tituloApp {
@@ -18,14 +130,15 @@
     padding: 0px 0px 25px ;
 }
 
-.container {
-    padding: 40px 15px;
-    min-height: 129vh;
-}
+
 
 .containerAreaTarefas {
     padding: 10px 0px;
    
+}
+
+.todo-list {
+    background-color: var(--background-color-container-todo);
 }
 
 .tituloAreaTarefas {
@@ -34,3 +147,4 @@
     font-size: 18px;
     font-weight: 600;
 }
+

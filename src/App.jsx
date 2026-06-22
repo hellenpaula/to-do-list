@@ -1,7 +1,7 @@
 
 import './App.css'
 import { useEffect, useState } from 'react'
-
+import '../src/index.css'
 // components
 import Todo from './components/tarefas/Todo';
 
@@ -11,6 +11,9 @@ import Search from './components/filtragem/Search';
 import DropDown from './components/criacaoTarefas/DropDown';
 
 import Order from './components/filtragem/Order';
+
+
+
 
 function App() {
   // todo padrão:
@@ -45,6 +48,8 @@ function App() {
   const [todoButtonsClicked, setTodoButtonsClicked] = useState("");
 
   const [ButtonClicked, setButtonClicked] = useState(false);
+
+  const [isDark, setIsDark] = useState(false);
 
 
   // state é enviado como parâmetro da função e enviado assim que houver mudança no state com "onChange", que chama a função.
@@ -148,12 +153,38 @@ function App() {
 
   }
 
+  function changeMode() {
+    setIsDark(!isDark);
+
+  }
+
 
 console.log(todosSearch);
 
   return (
-    <div className='App'>
+    // <div className='App' >
+    <div className={`App ${isDark === false ? "root" : "dark-mode" }`}>
+      
       <main className="container">
+
+
+        <div /* className="containerThemeIcon" */ className={`containerThemeIcon ${isDark === false ? "" : "containerThemeIconOn"}`}>
+
+         <div className={`themeIconLigth ${isDark === false ? "themeIconLigthOn" : ""}`} onClick={changeMode}>
+             
+            <i className={`fi fi-tr-brightness themeLight  ${isDark === false ? "themeLightOn" : ""}`} ></i>
+            <p className='themeParagraph'>LIGHT</p>
+          </div>
+
+          <div className={`themeIconDark ${isDark === true ? "themeIconDarkhOn" : ""}`} onClick={changeMode}>
+
+            <i className="fi fi-ts-moon themeDark"></i>
+            <p className='themeParagraph'>DARK</p>
+
+          </div>
+
+        </div>
+
         <h1 className='tituloApp'>Tarefas</h1>
 
         <Search inputSearch={inputSearch} setInputSearch={setInputSearch} searchTarefa2={searchTarefa}/>

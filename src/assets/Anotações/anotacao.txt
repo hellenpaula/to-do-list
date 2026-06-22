@@ -1,0 +1,69 @@
+-ANOTAÇÕES SOBRE O PROJETO:
+
+
+Funcionalidades a serem aplicadas:
+- Criar tarefa ☑️
+- Remover tarefa ☑️
+- Completar tarefa ☑️
+- Pesquisar ☑️
+- Filtrar status ☑️
+- Ordenar ☑️
+
+- Dark mode(troca de visual ao clicar no botão ☑️, botão desliza ao ser clicado)
+- Ckeckbox ao clicar em completar
+- Escolha de data de conclusão
+- Aplicar a opção de filtar por categorias(ou criar um novo filtro só para categorias(trabalho, estudo, pessoal) ou aplicar dentro do filtro de status com alguma separação entre status - categorias)
+- Editar tarefas()
+- localStorage para persistencias de informações
+- Contador de tarefas
+- Deixar projeto sem tarefas no início(criar uma tela padrão para quando não tiver tarefas)
+
+
+CSS: 
+- Edições necessárias:
+° deixar dropdown da área de filtragem adaptativo;
+° deixar input e dropdown da área de todoForm adaptativo;
+° aplicar a altura para toda a tela(background);
+° 
+
+Interface:
+- Mobile:
+
+- Tablet e Notebook:
+1° ideia =
+    * lateral esquerda informações da conta do usuário, no centro as tarefas pendentes(criadas), lateral direita infromações osbre as tarefas(filtros, na tarefa clicada edições q podem ser feitas);
+
+
+2° ideia =
+    * imagem como background(transparente), no centro a estrutura q compõe a todo list.
+
+3° ideias =
+    * lateral esquerda aplicar os filtros e a área de criação, no centro e lateral direita(toda a área que sobrar) aplicar as tarefas + junto com um background bacana.
+
+
+
+
+Ideias gerais de design:
+- design glass(como apple), degradê suave e moderno;
+- cor: verde, branco, preto, cinza bege combinando com o laranja;
+- fazer logo
+- fazer footer(com informações minhas, logo, )
+- fazer versão nootebok
+
+
+
+ola claude, vamos falar sobre desenvolvimento frontend?
+então, basicamente estou construindo um projeto simples de uma to do list que tem o intuito de aprofundamento nos conhecimentos ao React. Com isso, desenvolvi ele com algumas funcionalidades como: criação de tarefas, filtragens, completar ou remover tarefas, para trabalhar com os conceitos do framework, de lógica de programação e tbm o UI. Agora que "finalizei" a parte lógica e de programação, quero criar o visual do projeto e desejo que seja feito uma interface bem moderna e bonita, onde eu possa aplicar o melhor do que eu sei sobre css, claro que ainda me considero iniciante e não tenho conhecimentos avançados em css, mas consigo já criar interfaces interessantes com o que já aprendi até aqui. Esse projeto é considerado inicial e básico, mas como estou aprendendo como utilizar o React, faz todo sentindo eu treinar com projetos como esse, mas não é por isso que eu preciso deixar o visual do projeto extremamente amador, desinteresante e sem criatividade, acredito que com ele posso aplicar bons conceitos de css e criar um projeto simples, mas bonito, criativo e que deixe bem claro que apesar de iniciante eu consigo usar da criatividade para fazer interfaces interessantes. Gostaria que me ajudasse a criar ess visual para o projeto usando como base o que eu já construí, minhas referencias e ideias que desejo aplicar. Você pode me ajudar? 
+Se sim, veja as imagens que vou anexar aqui para entender como está o visual do projeto agora(visual esse criado pensando primeiro em dispositivos mobile para seguir o conceito de mobile first) e ideias iniciais do que pensei sobre como pode parecer esse projeto.
+Acredito que posso usar vários tipos de designes já conhecidos, e para esse caso pensei 'liquid glass', 'Neumorphism', que são design bonitos, modernos e simples, como uma to do list deve ser.
+Eai, com tudo que foi falado gostaria de saber o que você acha de como vão minhas ideias, se é interessante seguir essa linha no meu projeto e me ajudar a refinar essa ideia visual inicial que construi no figma como uma tentativa de criar um visual para o projeto.
+
+
+1. De qual país você está participando?
+2. O que motivou você a participar do Mulher Digital?
+3. O que você gostaria de conquistar durante estes meses?
+4. O que gera mais entusiasmo em você… e o que gera mais dúvidas ao começar?
+
+Olá, sou brasileira. Decidi me inscrever no programa pois estava em busca de me desenvolver na área da tecnologia e me conectar a pessoas com esse mesmo objetivo, vi nesse programa uma ótima oportunidade para aprender e me desafiar dentro de um ambiente que fornece apoio e acolhimento para nós mulheres! 
+Espero, durante esses meses, mergulhar no mundo da cibersegurança, colocar em prática os conhecimentos aprendidos e me conectar com as outras participantes, para que juntas possamos conquistar mais espaço na área da tecnologia! 
+Estou muito entusiasmada para desenvolver novas habilidades, mas com algumas dúvidas como: "Será que vou conseguir?", que são bem comuns quando iniciamos algo novo e que nos mostram a importância de ter coragem e resiliência.
